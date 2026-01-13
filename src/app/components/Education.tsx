@@ -7,7 +7,7 @@ export function Education() {
       degree: 'B.Tech in Information Technology',
       duration: 'October 2023 – 2027',
       status: 'Currently Studying',
-      logo: 'https://res.cloudinary.com/dcbla9zbl/image/upload/v1767446357/wjtwog2zlboum8ftdy2q.png',
+      logo: 'https://res.cloudinary.com/dcbla9zbl/image/upload/v1767475619/ly845neyzsijn2u6yuif.jpg',
       isPrimary: true,
     },
     {
@@ -15,12 +15,14 @@ export function Education() {
       level: 'High School',
       logo: 'https://res.cloudinary.com/dcbla9zbl/image/upload/v1767464523/vbjtpadsdo2xbbffce6j.png',
       isPrimary: false,
+      duration: '2020',
     },
     {
       institution: 'Pragati Public Senior Secondary School, Kota, Rajasthan',
       level: 'Intermediate',
       logo: 'https://res.cloudinary.com/dcbla9zbl/image/upload/v1767464766/w7sd17aemmsku3hhgyf4.png',
       isPrimary: false,
+      duration: '2022'
     },
   ];
 
@@ -91,6 +93,12 @@ export function Education() {
                           </h4>
                           <p className="text-neutral-500 text-sm mt-0.5">{edu.level}</p>
                         </div>
+                        {edu.duration && (
+                          <div className="flex items-center gap-2 text-neutral-400 text-sm">
+                            <Calendar size={14} />
+                            <span>{edu.duration}</span>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>

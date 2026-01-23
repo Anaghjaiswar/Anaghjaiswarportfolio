@@ -1,7 +1,7 @@
 
-  # Trip Itinerary App
+  # Anagh Jaiswar
 
-  This is a code bundle for Trip Itinerary App. The original project is available at https://www.figma.com/design/KOcxg8TZy4BHXRFsMJXKnH/Trip-Itinerary-App.
+  This is a code bundle for Anagh Jaiswar. The original project is available at https://www.figma.com/design/KOcxg8TZy4BHXRFsMJXKnH/Anagh-Jaiswar.
 
   ## Running the code
 

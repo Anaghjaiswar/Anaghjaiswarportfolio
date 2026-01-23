@@ -8,8 +8,13 @@ import { Experience } from './components/Experience';
 import { Education } from './components/Education';
 import { Writing } from './components/Writing';
 import { Contact } from './components/Contact';
+import { useEffect } from 'react';
 
 export default function App() {
+  useEffect(() => {
+    document.title = 'Anagh Jaiswar';
+  }, []);
+
   return (
     <div className="bg-black min-h-screen">
       <Navbar />

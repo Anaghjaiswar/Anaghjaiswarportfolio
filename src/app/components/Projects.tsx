@@ -12,8 +12,8 @@ export function Projects() {
         'Built for reliability under registration spikes',
       ],
       tech: ['Django', 'Razorpay', 'PostgreSQL', 'reCAPTCHA'],
-      github: '#',
-      demo: null,
+      github: 'https://github.com/Anaghjaiswar/workshop-form',
+      demo: 'https://drive.google.com/file/d/1TUeEQ5UAVqx-GrbXoe8Hu_YKK-tymHga/view?usp=sharing',
     },
     {
       title: 'Society Application Backend',
@@ -25,8 +25,8 @@ export function Projects() {
         'Attendance tracking and reporting features',
       ],
       tech: ['Django', 'Django Channels', 'WebSockets', 'DRF'],
-      github: '#',
-      demo: null,
+      github: 'https://github.com/Anaghjaiswar/CSI_BACKEND',
+      demo: 'https://drive.google.com/file/d/1TVbuSBbTrG8GP4k78MwBlfvcR_GV1dcH/view',
     },
     {
       title: 'Hola Project API',
@@ -38,7 +38,7 @@ export function Projects() {
         'Collaborative development workflow',
       ],
       tech: ['Django', 'DRF', 'JWT', 'PostgreSQL'],
-      github: '#',
+      github: 'https://github.com/Anaghjaiswar/hola_project',
       demo: null,
     },
     {
@@ -51,8 +51,8 @@ export function Projects() {
         'Production deployment with Cloudinary for media',
       ],
       tech: ['Django', 'PostgreSQL', 'Render', 'Cloudinary'],
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/Anaghjaiswar/Recipe-Blog',
+      demo: 'https://drive.google.com/file/d/1OxUAf7Aoh0IaFtsH5N6MUJdyY6BCMy-D/view?usp=sharing',
     },
   ];
 

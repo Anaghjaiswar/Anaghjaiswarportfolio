@@ -14,7 +14,7 @@ export function Projects() {
       ],
       tech: ['Django', 'DRF', 'Celery', 'Channels', 'FastAPI', 'Docker'],
       github: null,
-      demo: null,
+      demo: 'https://drive.google.com/file/d/1EWLT0GRH7XhIOzhUWCWU1cJUdsC4jfIS/view',
     },
     {
       title: 'ColdMail AI — RAG-Powered Cold Email Agent',
@@ -28,7 +28,7 @@ export function Projects() {
       ],
       tech: ['FastAPI', 'LangChain', 'pgvector', 'Groq', 'Docling'],
       github: 'https://github.com/Anaghjaiswar/AI-Powered-Cold-Email-Application-Assistant',
-      demo: null,
+      demo: 'https://drive.google.com/file/d/169amEHxwpfGUFhRpoGzTcPJcS6pHJ1ts/view',
     },
     {
       title: 'CSI Society Application Backend',

@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Github, Send } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -7,14 +8,56 @@ export function Contact() {
     email: '',
     message: '',
   });
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    alert('Thanks for reaching out! I\'ll get back to you soon.');
+    setIsSending(true);
+    setStatusMessage(null);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS environment variables are missing!');
+      setStatusMessage({
+        type: 'error',
+        text: 'Email service is not fully configured yet. Please configure your .env file.',
+      });
+      setIsSending(false);
+      return;
+    }
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setStatusMessage({
+            type: 'success',
+            text: 'Thanks for reaching out! I\'ve received your message and will respond shortly.',
+          });
+          setFormData({ name: '', email: '', message: '' });
+        },
+        (err) => {
+          console.error('FAILED...', err);
+          setStatusMessage({
+            type: 'error',
+            text: 'Failed to send the message. Please try again later or contact me directly.',
+          });
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -98,12 +141,24 @@ export function Contact() {
                     className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 transition-colors resize-none"
                   />
                 </div>
+                {statusMessage && (
+                  <div
+                    className={`p-4 rounded-lg text-sm ${
+                      statusMessage.type === 'success'
+                        ? 'bg-emerald-950/30 border border-emerald-800 text-emerald-400'
+                        : 'bg-rose-950/30 border border-rose-800 text-rose-400'
+                    }`}
+                  >
+                    {statusMessage.text}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-white text-black px-6 py-3 rounded-lg hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2"
+                  disabled={isSending}
+                  className="w-full bg-white text-black px-6 py-3 rounded-lg hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send size={18} />
-                  Send Message
+                  <Send size={18} className={isSending ? "animate-pulse" : ""} />
+                  {isSending ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>

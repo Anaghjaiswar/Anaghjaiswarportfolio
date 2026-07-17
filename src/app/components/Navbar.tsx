@@ -23,13 +23,13 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { label: 'About', id: 'about' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Education', id: 'education' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Writing', id: 'writing' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'About', id: 'about', href: '', isExternal: false },
+    { label: 'Projects', id: 'projects', href: '', isExternal: false },
+    { label: 'Experience', id: 'experience', href: '', isExternal: false },
+    { label: 'Education', id: 'education', href: '', isExternal: false },
+    { label: 'Skills', id: 'skills', href: '', isExternal: false },
+    { label: 'Contact', id: 'contact', href: '', isExternal: false },
+    { label: 'Resume', id: '', href: '/Anagh_Jaiswar_Resume.pdf', isExternal: true },
   ];
 
   return (
@@ -45,28 +45,43 @@ export function Navbar() {
           {/* Logo / Name */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-white hover:text-neutral-300 transition-colors"
+            className="text-white hover:text-neutral-300 transition-colors cursor-pointer"
           >
             Anagh Jaiswar
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="text-neutral-400 hover:text-white transition-colors text-sm"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              if (link.isExternal) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-white transition-colors text-sm font-medium"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id!)}
+                  className="text-neutral-400 hover:text-white transition-colors text-sm font-medium cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 cursor-pointer"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,15 +92,30 @@ export function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-neutral-800 py-4">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="text-neutral-400 hover:text-white transition-colors text-left"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                if (link.isExternal) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-400 hover:text-white transition-colors text-left"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+                return (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id!)}
+                    className="text-neutral-400 hover:text-white transition-colors text-left cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}

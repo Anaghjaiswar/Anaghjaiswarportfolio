@@ -1,8 +1,8 @@
 export function About() {
   const stats = [
-    { value: '110+', label: 'Real Paid Transactions Processed' },
-    { value: '6+', label: 'Months Production Backend Work' },
-    { value: 'Zero', label: 'Payment Failures in Production' },
+    { value: '28K+', label: 'Lines of Code, Live Trading Platform' },
+    { value: '70%', label: 'Of Commits on a Two-Engineer Team' },
+    { value: '2', label: 'Production Systems Shipped, Same Company' },
   ];
 
   return (
@@ -20,23 +20,25 @@ export function About() {
             {/* Bio */}
             <div className="space-y-4">
               <p className="text-neutral-300 text-lg leading-relaxed">
-                I'm a B.Tech IT student (3rd year) who builds backend systems that work
-                in the real world — not just on localhost.
+                I'm a 3rd-year B.Tech student who spends more time reading production
+                logs than lecture notes.
               </p>
               <p className="text-neutral-400 leading-relaxed">
-                Currently working as a Backend Engineering Intern at Potoos, I design APIs
-                and systems that handle real users, real money, and real failure cases.
-                My work focuses on reliability, robustness, and production-minded engineering.
+                At Potoos, I'm the primary backend contributor — about 70% of commits —
+                to a live algorithmic trading platform handling real user capital. I've
+                also independently built a separate Go microservice for a SEBI-regulated
+                research advisory product: KYC verification, risk profiling, and
+                trade-signal distribution, running alongside the main backend.
               </p>
               <p className="text-neutral-400 leading-relaxed">
-                I don't just write code — I build systems that survive bad inputs, scale
-                under load, and degrade gracefully when things go wrong. I think in terms
-                of edge cases, race conditions, and production constraints.
+                Outside of work, I build my own systems end-to-end: a clinic management
+                platform for rheumatology practices with a custom disease-activity
+                scoring engine, and a RAG-based tool that reads job descriptions and
+                drafts tailored cold emails from my resume.
               </p>
               <p className="text-neutral-400 leading-relaxed">
-                My experience includes payment gateway integrations, WebSocket-based
-                real-time systems, and deploying production applications that serve
-                actual users.
+                I gravitate toward problems where getting it wrong costs someone money
+                or time — that's usually where the real engineering is.
               </p>
             </div>
 

@@ -28,14 +28,14 @@ export function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'jaiswaranagh@gamil.com',
-      href: 'mailto:anagh@example.com',
+      value: 'jaiswaranagh@gmail.com',
+      href: 'mailto:jaiswaranagh@gmail.com',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/anaghjaiswar',
-      href: 'https://linkedin.com/in/anaghjaiswar',
+      value: 'linkedin.com/in/anagh-jaiswar',
+      href: 'https://linkedin.com/in/anagh-jaiswar',
     },
     {
       icon: Github,
@@ -51,12 +51,12 @@ export function Contact() {
         <div className="space-y-12">
           {/* Section Title */}
           <div className="text-center">
-            <h2 className="text-white">Let's Work Together</h2>
+            <h2 className="text-white">Building something?</h2>
             <div className="h-1 w-16 bg-white mt-4 mx-auto"></div>
             <p className="text-neutral-400 mt-6 max-w-2xl mx-auto">
-              I'm currently open to backend engineering opportunities, internships, and
-              collaborations. Feel free to reach out if you'd like to work together or
-              discuss potential projects.
+              If you need someone who can take a backend from a blank repo to
+              production and actually own it — that's what I do. Open to backend
+              roles, internships, and interesting problems in general.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export function Contact() {
           {/* Footer Note */}
           <div className="text-center pt-12 border-t border-neutral-800">
             <p className="text-neutral-500 text-sm">
-              © 2025 Anagh Jaiswar. Backend Engineer building production systems.
+              © 2026 Anagh Jaiswar. Building backend systems that don't fall over.
             </p>
           </div>
         </div>

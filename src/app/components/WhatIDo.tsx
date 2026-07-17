@@ -4,23 +4,27 @@ export function WhatIDo() {
   const values = [
     {
       icon: Database,
-      title: 'Scalable Backend APIs for Real Users',
-      description: 'Production systems that handle real traffic, not just test data.',
+      title: 'Order execution for real money',
+      description:
+        'I build the pipelines that place, modify, and exit trades on a live platform — using real user capital, with no room for a silent double-execution.',
     },
     {
       icon: ShieldCheck,
-      title: 'Payment Systems That Handle Real Money',
-      description: 'Robust transaction processing with verification and security built-in.',
+      title: "Making sure two things don't happen at once",
+      description:
+        'I use Redis and Lua scripting to lock down order state, so a stop-loss and a manual exit can never both fire on the same trade.',
     },
     {
       icon: Activity,
-      title: "Async Workflows That Don't Break Under Load",
-      description: 'WebSocket channels, background tasks, and event-driven architectures.',
+      title: 'Background jobs that keep running when things go wrong',
+      description:
+        'Django, Celery, and Redis pipelines for order flow, KYC checks, and notifications — built to retry, queue, and recover instead of just failing.',
     },
     {
       icon: Layers,
-      title: 'Systems Designed for Failure, Not Just Success',
-      description: 'Error handling, validation, and graceful degradation as core principles.',
+      title: 'AI tools I designed end-to-end, not just prompted',
+      description:
+        "RAG pipelines and applied GenAI systems I've architected myself — data model, retrieval, generation, and the plumbing in between.",
     },
   ];
 
@@ -33,7 +37,7 @@ export function WhatIDo() {
             <h2 className="text-white">What I Build</h2>
             <div className="h-1 w-16 bg-white mt-4 mx-auto"></div>
             <p className="text-neutral-400 mt-6">
-              I focus on outcomes, not just code. Here's how I add value.
+              The kind of problems I actually spend my time on.
             </p>
           </div>
 

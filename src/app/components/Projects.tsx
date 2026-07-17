@@ -3,56 +3,44 @@ import { ExternalLink, Github } from 'lucide-react';
 export function Projects() {
   const projects = [
     {
-      title: 'Society Workshop Registration Backend',
-      description: 'Payment gateway integration that processed 110+ real paid registrations',
+      title: 'RheumaLink — Clinic Management Platform',
+      description:
+        'Full-stack practice management system for rheumatology clinics, built from studying real clinical intake workflows (DAS28, HAQ).',
       highlights: [
-        'Successfully handled real money transactions with zero failures',
-        'Razorpay integration with transaction verification',
-        'reCAPTCHA security layer to prevent fraud',
-        'Built for reliability under registration spikes',
+        'Domain-accurate data model spanning 100+ structured clinical fields',
+        'Real-time appointment and queue system (Django Channels/WebSockets) with live per-doctor dashboards',
+        'Interactive clickable SVG joint chart feeding a DAS28 disease-activity scoring engine',
+        'Companion FastAPI + Gemini/Groq microservice for LLM-based report extraction, serving multiple clinics on separate API keys',
       ],
-      tech: ['Django', 'Razorpay', 'PostgreSQL', 'reCAPTCHA'],
-      github: 'https://github.com/Anaghjaiswar/workshop-form',
-      demo: 'https://drive.google.com/file/d/1TUeEQ5UAVqx-GrbXoe8Hu_YKK-tymHga/view?usp=sharing',
-    },
-    {
-      title: 'Society Application Backend',
-      description: 'Real-time communication system with WebSocket-based group chat',
-      highlights: [
-        'REST APIs serving both user and admin workflows',
-        'Django Channels for real-time WebSocket connections',
-        'Notification system with media handling',
-        'Attendance tracking and reporting features',
-      ],
-      tech: ['Django', 'Django Channels', 'WebSockets', 'DRF'],
-      github: 'https://github.com/Anaghjaiswar/CSI_BACKEND',
-      demo: 'https://drive.google.com/file/d/1TVbuSBbTrG8GP4k78MwBlfvcR_GV1dcH/view',
-    },
-    {
-      title: 'Hola Project API',
-      description: 'Social platform backend built in a team environment',
-      highlights: [
-        'Token-based authentication with JWT',
-        'Social features: posts, comments, likes',
-        'API documentation for frontend integration',
-        'Collaborative development workflow',
-      ],
-      tech: ['Django', 'DRF', 'JWT', 'PostgreSQL'],
-      github: 'https://github.com/Anaghjaiswar/hola_project',
+      tech: ['Django', 'DRF', 'Celery', 'Channels', 'FastAPI', 'Docker'],
+      github: null,
       demo: null,
     },
     {
-      title: 'Recipe Blog Website',
-      description: 'Full-stack application deployed to production on Render',
+      title: 'ColdMail AI — RAG-Powered Cold Email Agent',
+      description:
+        'Self-hosted RAG system that reads a job description and drafts a tailored cold email using the right resume variant.',
       highlights: [
-        'Complete authentication and authorization',
-        'Tag system with pagination for scalability',
-        'PostgreSQL with optimized queries',
-        'Production deployment with Cloudinary for media',
+        'Layout-aware resume parsing (Docling) with local embeddings in Postgres/pgvector',
+        'Retrieves top-8 matching resume chunks and drafts emails with LangChain + Groq (Llama 3.3 70B)',
+        'Background SMTP mailer that compiles Markdown into styled HTML MIME emails with resume attachments',
+        'Async ingestion with live status polling, fully Dockerized',
       ],
-      tech: ['Django', 'PostgreSQL', 'Render', 'Cloudinary'],
-      github: 'https://github.com/Anaghjaiswar/Recipe-Blog',
-      demo: 'https://drive.google.com/file/d/1OxUAf7Aoh0IaFtsH5N6MUJdyY6BCMy-D/view?usp=sharing',
+      tech: ['FastAPI', 'LangChain', 'pgvector', 'Groq', 'Docling'],
+      github: 'https://github.com/Anaghjaiswar/AI-Powered-Cold-Email-Application-Assistant',
+      demo: null,
+    },
+    {
+      title: 'CSI Society Application Backend',
+      description: 'Modular Django backend for a 500+ member college tech society.',
+      highlights: [
+        'Apps for members, domains, events, tasks, attendance, and announcements',
+        'Proximity-based attendance and automated notification pipeline',
+        'Real-time group chat (WebSockets) with media sharing and threaded replies',
+      ],
+      tech: ['Django', 'DRF', 'WebSockets'],
+      github: 'https://github.com/Anaghjaiswar/CSI_BACKEND',
+      demo: 'https://drive.google.com/file/d/1TVbuSBbTrG8GP4k78MwBlfvcR_GV1dcH/view',
     },
   ];
 
@@ -107,6 +95,7 @@ export function Projects() {
                 </div>
 
                 {/* Links */}
+                {(project.github || project.demo) ? (
                 <div className="flex items-center gap-3 pt-4 border-t border-neutral-800">
                   {project.github && (
                     <a
@@ -131,6 +120,11 @@ export function Projects() {
                     </a>
                   )}
                 </div>
+                ) : (
+                  <p className="pt-4 border-t border-neutral-800 text-neutral-600 text-xs">
+                    Private repo — happy to walk through the code on a call.
+                  </p>
+                )}
               </div>
             ))}
           </div>

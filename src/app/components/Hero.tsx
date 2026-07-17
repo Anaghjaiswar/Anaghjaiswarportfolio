@@ -17,18 +17,20 @@ export function Hero() {
             {/* Small intro */}
             <div className="inline-block">
               <span className="text-neutral-500 text-sm tracking-wide uppercase">
-                Backend Engineering Intern
+                Backend Engineer, Potoos — Live Trading Platform
               </span>
             </div>
 
             {/* Main tagline - the core message */}
             <h1 className="text-white leading-tight">
-              Designing systems that survive bad inputs, bad data, bad traffic and bad days.
+              I build backend systems for products where a bug means someone loses money.
             </h1>
 
             {/* Supporting line */}
             <p className="text-neutral-400 text-lg max-w-xl">
-              Backend engineer focused on APIs, async systems, and production-ready architectures.
+              Right now I'm a core backend contributor to a live algorithmic trading
+              platform handling real user capital. I design the system, write it, deploy
+              it, and own it when something breaks at 2am.
             </p>
 
             {/* CTAs */}
@@ -37,7 +39,7 @@ export function Hero() {
                 onClick={() => scrollToSection('projects')}
                 className="bg-white text-black px-6 py-3 rounded-md hover:bg-neutral-200 transition-colors flex items-center gap-2"
               >
-                View Projects
+                See what I've built
                 <ArrowRight size={18} />
               </button>
               <button
@@ -45,7 +47,7 @@ export function Hero() {
                 className="border border-neutral-700 text-white px-6 py-3 rounded-md hover:border-neutral-500 hover:bg-neutral-900 transition-colors flex items-center gap-2"
               >
                 <Mail size={18} />
-                Contact
+                Building something? Let's talk
               </button>
             </div>
           </div>
